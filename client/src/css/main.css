@@ -1,0 +1,43 @@
+.mainContent {
+  max-width: 100%;
+}
+
+.mainContent__wrap {
+  -webkit-transition: margin-top 0.3s ease;
+  transition: margin-top 0.3s ease;
+  margin-top: 48px;
+}
+
+.mainContent__wrap__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0 auto;
+  max-width: 975px;
+  min-width: 200px;
+}
+
+section {
+  height: 600px;
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+  margin-top: 100px;
+}
+
+.mem1 {
+  margin-right: 15px;
+}
+
+.mem {
+  -webkit-box-flex: 1.5;
+      -ms-flex: 1.5;
+          flex: 1.5;
+  height: 200px;
+  border: 1px solid green;
+}
+/*# sourceMappingURL=main.css.map */

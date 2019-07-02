@@ -1,0 +1,38 @@
+.mainContent {
+  max-width: 100%;
+}
+
+.mainContent__wrap {
+  transition: margin-top 0.3s ease;
+  margin-top: 48px;
+}
+.mainContent__wrap__content {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  max-width: 975px;
+  //width: 54em;
+  min-width: 200px;
+  //padding: 20px 24px;
+}
+section {
+  height: 600px;
+  flex: 3;
+  margin-top: 100px;
+}
+.mem1 {
+  margin-right: 15px;
+}
+.mem {
+  flex: 1.5;
+  height: 200px;
+  border: 1px solid green;
+}
+
+// .stic {
+//   margin-top: 50px;
+//   padding-top: 50px;
+//   height: 100px;
+//   position: sticky;
+//   top: 10px;
+// }

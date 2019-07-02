@@ -1,0 +1,48 @@
+.navbar {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  flex: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 80;
+  margin-top: 0;
+  height: 48px;
+  background-color: #0079d3;
+}
+
+.navbar__bar {
+  align-items: center;
+  display: inline-flex;
+  height: inherit;
+  //   background-color: #0079d3;
+  border-bottom: 1px solid aquamarine;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-grow: 1;
+  padding: 0 20px;
+}
+
+.navbar__bar__logo {
+  flex: 1;
+  align-items: center;
+
+  display: inline-flex;
+
+  flex-direction: row;
+
+  //flex-grow: 1;
+}
+
+.navbar__bar__links {
+  flex: 3;
+  justify-content: flex-end;
+  align-items: center;
+
+  display: inline-flex;
+
+  flex-direction: row;
+  //flex-grow: 0;
+}
