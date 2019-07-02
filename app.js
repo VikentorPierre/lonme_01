@@ -3,8 +3,14 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const bodyParser = require("bodyParser");
+const bodyParser = require("body-parser");
 const logger = require("morgan");
+const db = require("./config/keys").mongoURI;
+
+mongoose
+  .connect(db)
+  .then(() => console.log("db is conneted"))
+  .catch(err => console.log(err));
 
 // init endpoint
 const testEP = require("./Api/testEP");
