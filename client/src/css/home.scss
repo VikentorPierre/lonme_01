@@ -1,0 +1,63 @@
+//@import "base";
+
+section {
+  margin: 5px 0px;
+  width: 100%;
+}
+
+.header-ad {
+  max-width: 100%;
+  width: 90%;
+  height: 100px;
+  background-color: aquamarine;
+}
+
+.board {
+  // width: 95%
+  display: flex;
+  flex-direction: column;
+  background-color: gray;
+}
+.board__row {
+  display: flex;
+  flex-direction: row;
+
+  height: 70px;
+  margin: 1px 0;
+  background-color: blue;
+
+  span {
+    flex: 1;
+    background-color: aquamarine;
+  }
+}
+
+.filter {
+  display: inline-flex;
+}
+.filter__text {
+  // padding-left: 20px
+  color: #888;
+  padding-left: 10px;
+}
+.filter__radio {
+  background-color: blue;
+  height: 20px;
+  width: 20%;
+  margin-left: 10px;
+}
+
+.post-home {
+  // padding: 0 1em
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0px;
+  //height: 500px;
+  background-color: #fafafa;
+
+  span {
+    height: 90px;
+    margin: 10px 0;
+    background-color: white;
+  }
+}

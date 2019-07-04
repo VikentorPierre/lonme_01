@@ -1,0 +1,56 @@
+$desktop: 840px;
+$smal: 630px;
+
+@mixin desktop {
+  @media (min-width:#{$desktop}) {
+    @content;
+  }
+}
+@mixin for-md-only {
+  @media (min-width: 500px) {
+    @content;
+  }
+}
+@mixin for-lg-only {
+  @media (min-width: 1000px) {
+    @content;
+  }
+}
+
+.mainContent {
+  background-color: #fafafa;
+  flex-shrink: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  //max-width: 100%;
+}
+
+.mainContent__wrap {
+  transition: margin-top 0.3s ease;
+  margin-top: 48px;
+}
+.mainContent__wrap__content {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  flex-grow: 1;
+  max-width: 500px; //600px;
+  position: relative;
+  width: 100%;
+  align-items: center;
+  @include for-md-only {
+    padding-top: 50px;
+  }
+  @include for-lg-only {
+    //flex-flow: row nowrap;
+    max-width: 935px;
+  }
+
+  //max-width: 765px;
+  //max-width: 975px;
+  //width: 54em;
+  //min-width: 200px;
+
+  //padding: 20px 24px;
+}

@@ -1,14 +1,18 @@
 import React from "react";
 import logo from "./logo.svg";
 import Navbar from "./components/header";
-import "./css/main.css";
+import Home from "./components/home";
+import "./css/base.css";
+//import "./css/main.css";
+
 //import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      <main className="mainContent">
+      <Home />
+      {/* <main className="mainContent">
         <div className="mainContent__wrap">
           <div className="mainContent__wrap__content">
             <section className="mem1">
@@ -31,7 +35,7 @@ function App() {
             </section>
           </div>
         </div>
-      </main>
+      </main> */}
     </div>
   );
 }
