@@ -35,22 +35,27 @@ $smal: 630px;
   flex-direction: column;
   margin: 0 auto;
   flex-grow: 1;
-  max-width: 500px; //600px;
+  max-width: 600px; //600px;
   position: relative;
   width: 100%;
-  align-items: center;
+  //align-items: center;
   @include for-md-only {
     padding-top: 50px;
   }
   @include for-lg-only {
-    //flex-flow: row nowrap;
-    max-width: 935px;
+    flex-flow: row nowrap;
+    //flex-direction: row;
+    max-width: 910px;
   }
+}
 
-  //max-width: 765px;
-  //max-width: 975px;
-  //width: 54em;
-  //min-width: 200px;
-
-  //padding: 20px 24px;
+.extraContent {
+  @include for-md-only {
+    padding-top: 95px;
+  }
+  @include for-lg-only {
+    flex-flow: column;
+    //flex-direction: row;
+    max-width: 600px;
+  }
 }

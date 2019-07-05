@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "../css/nav.css";
 
 class HeaderNav extends Component {
@@ -11,9 +12,9 @@ class HeaderNav extends Component {
       <header className="navbar">
         <div className="navbar__bar">
           <div className="navbar__bar__logo">
-            <a href="#">
+            <NavLink exact to="/">
               <h1>LoneMe</h1>
-            </a>
+            </NavLink>
           </div>
           <div className="navbar__bar__links">
             <ul>
@@ -23,14 +24,16 @@ class HeaderNav extends Component {
             </ul>
             <ul>
               <li>
-                {" "}
-                <a href="#"> action2</a>
+                <NavLink exact to="/setting/" className="">
+                  Setting
+                </NavLink>
               </li>
             </ul>
             <ul>
               <li>
-                {" "}
-                <a href="#"> action3</a>
+                <NavLink exact to="/profile/" className="">
+                  Profile
+                </NavLink>
               </li>
             </ul>
           </div>
