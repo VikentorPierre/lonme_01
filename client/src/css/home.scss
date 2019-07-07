@@ -4,20 +4,8 @@
     @content;
   }
 }
-
-// section {
-//   //margin: 5px 0px;
-//   //width: 100%;
-// }
-
 .content-left {
   order: 2;
-
-  // float: left;
-  // margin-right: 28px;
-  // max-width: 600px;
-  // width: 100%;
-  //flex: 2;
   @include for-lg-only {
     float: left;
     order: 0;
@@ -52,12 +40,19 @@
   height: 100px;
   width: 100%;
   background-color: aquamarine;
+  @include for-lg-only {
+    order: 2;
+  }
 }
-.person {
+.user--aside {
   order: 2;
   height: 100px;
+  overflow: hidden;
   width: 100%;
-  background-color: red;
+  background-color: white;
+  @include for-lg-only {
+    order: 1;
+  }
 }
 
 .board {
@@ -119,5 +114,42 @@
     margin: 10px 0;
     background-color: white;
     text-align: center;
+    a {
+      //display: block;
+    }
   }
 }
+
+//  user--aside
+
+.user--header {
+  height: 60px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 5px;
+  div {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+
+    a {
+      h4 {
+        margin: 0 10px;
+      }
+    }
+  }
+}
+
+.default--user--img {
+  width: 50px;
+  height: 50px;
+}
+// .user--aside span {
+//   height: 50px;
+//   width: 100%;
+
+//   span {
+//     height: 100%;
+//   }
+// }

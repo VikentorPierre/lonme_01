@@ -1,5 +1,7 @@
 import React, { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "../css/home.css";
+import defaultUser from "../null.jpg";
 // stories, advice, Q&A,
 class Home extends Component {
   constructor(props) {
@@ -42,13 +44,17 @@ class Home extends Component {
               </section>
               <section className="filter">
                 <span className="filter__text">
-                  <h3> {"stories"} Filter By: </h3>
+                  <h3> {"stories:"} </h3>
                 </span>
                 <span className="filter__radio" />
               </section>
 
               <section className="post-home">
-                <span />
+                <span>
+                  <NavLink to="/setting/">
+                    <div />
+                  </NavLink>
+                </span>
                 <span />
                 <span />
                 <span />
@@ -63,10 +69,25 @@ class Home extends Component {
               </section>
             </dir>
             <div className="content-right">
-              <section className="person" />
+              <section className="user--aside">
+                <div className="user--header">
+                  <div>
+                    <NavLink to="/profile/">
+                      <img
+                        src={defaultUser}
+                        className="default--user--img"
+                        alt=""
+                      />
+                    </NavLink>
+                    <NavLink to="/profile/">
+                      {" "}
+                      <h4> mosdev </h4>{" "}
+                    </NavLink>
+                  </div>
+                </div>
+              </section>
               <section className="header-ad">
                 <span>
-                  {" "}
                   <strong> AD</strong>{" "}
                 </span>
               </section>

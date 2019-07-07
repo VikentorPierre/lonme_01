@@ -54,13 +54,30 @@
   background-color: aquamarine;
 }
 
-.person {
+@media (min-width: 1000px) {
+  .header-ad {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
+}
+
+.user--aside {
   -webkit-box-ordinal-group: 3;
       -ms-flex-order: 2;
           order: 2;
   height: 100px;
+  overflow: hidden;
   width: 100%;
-  background-color: red;
+  background-color: white;
+}
+
+@media (min-width: 1000px) {
+  .user--aside {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
 }
 
 .board {
@@ -146,5 +163,32 @@
   margin: 10px 0;
   background-color: white;
   text-align: center;
+}
+
+.user--header {
+  height: 60px;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 5px;
+}
+
+.user--header div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 50px;
+  width: 100%;
+}
+
+.user--header div a h4 {
+  margin: 0 10px;
+}
+
+.default--user--img {
+  width: 50px;
+  height: 50px;
 }
 /*# sourceMappingURL=home.css.map */
