@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "../css/home.css";
+import Post from "./include/post";
 import defaultUser from "../null.jpg";
 // stories, advice, Q&A,
 class Home extends Component {
@@ -50,22 +51,17 @@ class Home extends Component {
               </section>
 
               <section className="post-home">
-                <span>
-                  <NavLink to="/setting/">
-                    <div />
-                  </NavLink>
-                </span>
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
-                <span />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
+                <Post />
               </section>
             </dir>
             <div className="content-right">
