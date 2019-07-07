@@ -5,7 +5,10 @@ const Post = () => {
   return (
     <div className="post--content">
       <div className="post__body">
-        <div className="post__body__title">
+        <div className="post__body__title ">
+          <NavLink> My Title is this he it is </NavLink>{" "}
+        </div>
+        <div className="post__body__des">
           <NavLink>
             <h3>
               {" "}
@@ -14,7 +17,7 @@ const Post = () => {
             </h3>
           </NavLink>
         </div>
-        <div className="extra">
+        <div className="post__subBody">
           <span>
             <NavLink className="poster--link"> mosdev </NavLink>{" "}
           </span>

@@ -24,12 +24,21 @@
 
 .post__body__title {
   text-align: left;
+  color: #1c1c1c;
+  font-size: 14px;
+  text-transform: capitalize;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.post__body__des {
+  text-align: left;
   font-size: 1.3em;
   letter-spacing: 0.5px;
   color: black;
 }
 
-.post__body__title h3 {
+.post__body__des h3 {
   color: #222;
   font-size: 16px;
   display: inline;
@@ -40,7 +49,7 @@
   font-family: Arial, sans-serif;
 }
 
-.extra {
+.post__subBody {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
