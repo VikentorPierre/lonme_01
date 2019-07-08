@@ -30,7 +30,7 @@
   display: -ms-inline-flexbox;
   display: inline-flex;
   height: inherit;
-  border-bottom: 1px solid aquamarine;
+  border-bottom: 1px solid #ececec;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-orient: horizontal;

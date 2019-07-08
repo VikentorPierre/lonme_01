@@ -9,7 +9,7 @@ const Post = () => {
           <NavLink> My Title is this he it is </NavLink>{" "}
         </div>
         <div className="post__body__des">
-          <NavLink>
+          <NavLink to="/p/yesitworks/">
             <h3>
               {" "}
               Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
