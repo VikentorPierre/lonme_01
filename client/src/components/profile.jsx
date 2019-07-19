@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
+import Tab from "./include/tabs";
 
 import "../css/profile.css";
 class Profile extends Component {
@@ -13,12 +14,13 @@ class Profile extends Component {
         <div className="mainContent__wrap">
           <div className="mainContent__wrap__content extraContent">
             <header className="header--profile" />
-            <div className="profile--menu--bar">
+            <Tab />
+            {/* <div className="profile--menu--bar">
               <NavLink to="#"> Post </NavLink>
               <NavLink to="#"> Goals </NavLink>
               <NavLink to="#"> Stories </NavLink>
               <NavLink to="#"> Like </NavLink>
-            </div>
+            </div> */}
             <section className="profile--content" />
           </div>
         </div>

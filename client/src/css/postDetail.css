@@ -31,17 +31,8 @@
 
 .post--detail__comment {
   margin: 1px 0;
-  background-color: aquamarine;
+  background-color: #ececec;
   width: 100%;
   min-height: 300px;
-}
-
-.bottom {
-  position: fixed;
-  width: 600px;
-  margin: 0 auto;
-  height: 50px;
-  background-color: lightgreen;
-  bottom: 0;
 }
 /*# sourceMappingURL=postDetail.css.map */

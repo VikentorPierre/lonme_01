@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import "../css/setting.css";
 
 class Setting extends Component {
   // constructor(props) {
@@ -15,11 +16,15 @@ class Setting extends Component {
               <h1> Setting Page </h1>
             </header>
             <div className="profile--menu--bar">
-              <NavLink to="#">Edit Profile</NavLink>
-              <NavLink to="#">Privacy & Security</NavLink>
-              <NavLink to="#">Change Password</NavLink>
+              <a href="#edit">Edit Profile</a>
+              <a href="#privacy">Privacy & Security</a>
+              <a href="#password">Change Password</a>
             </div>
-            <section className="profile--content" />
+            {/* <section className="profile--content"> */}
+            <div id="edit" />
+            <div id="privacy" />
+            <div id="password" />
+            {/* </section> */}
           </div>
         </div>
       </main>

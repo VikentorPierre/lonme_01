@@ -16,14 +16,16 @@
   letter-spacing: 1px;
   text-align: center;
   a {
+    color: #999;
     align-items: center;
     //margin-right: 60px;
     height: 52px;
     cursor: pointer;
   }
-  a:visited {
-    color: #999;
-  }
+  // a:visited {
+  //   color: black;
+  //   // color: #999;
+  // }
 }
 .profile--content {
   display: flex;
@@ -32,3 +34,39 @@
   background-color: white;
   margin-bottom: 70px;
 }
+.profile-tab-link {
+  display: flex;
+  text-transform: uppercase;
+  height: 100%;
+  color: #999;
+  align-items: center;
+  margin-right: 60px;
+  font-size: 16px;
+}
+// .profile-tab-link:visited {
+//   color: green;
+// }
+// .profile-tab-link.active:visited {
+//   color: green;
+// }
+// a.active {
+//   color: red;
+// }
+// a:visited {
+//   color: blue;
+// }
+// a.active:visited {
+//   color: red;
+// }
+a:link {
+  color: blue;
+} /* Unvisited links */
+.profile-tab-link:visited {
+  color: purple;
+} /* Visited links */
+a:hover {
+  background: yellow;
+} /* Hovered links */
+a:active {
+  color: red;
+} /* Active links */

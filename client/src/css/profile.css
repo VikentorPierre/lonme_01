@@ -27,15 +27,12 @@
 }
 
 .profile--menu--bar a {
+  color: #999;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   height: 52px;
   cursor: pointer;
-}
-
-.profile--menu--bar a:visited {
-  color: #999;
 }
 
 .profile--content {
@@ -47,4 +44,39 @@
   background-color: white;
   margin-bottom: 70px;
 }
+
+.profile-tab-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+  height: 100%;
+  color: #999;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 60px;
+  font-size: 16px;
+}
+
+a:link {
+  color: blue;
+}
+
+/* Unvisited links */
+.profile-tab-link:visited {
+  color: purple;
+}
+
+/* Visited links */
+a:hover {
+  background: yellow;
+}
+
+/* Hovered links */
+a:active {
+  color: red;
+}
+
+/* Active links */
 /*# sourceMappingURL=profile.css.map */

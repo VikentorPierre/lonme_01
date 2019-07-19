@@ -1,11 +1,27 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
+import { Comments, CommentArea } from "./include/comments";
 import "../css/postDetail.css";
 class PostDetail extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = { isDisabled: true };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
+
+  handleChange(e) {
+    e.preventDefault();
+    this.setState({ [e.target.name]: e.target.value });
+    console.log(this.state);
+  }
+
+  handleClick(e) {
+    e.preventDefault();
+    //this.setState({ isDisabled: !this.isDisabled });
+    console.log(this.state);
+  }
+
   render() {
     return (
       <main className="mainContent">
@@ -36,9 +52,23 @@ class PostDetail extends Component {
                 <button className="post--saved--btn">Save</button>
               </div>
             </section>
-            <section className="post--detail__comment" />
+            <section className="post--detail__comment">
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+              <Comments comment="this is a comment" />
+            </section>
           </div>
-          <div className="bottom" />
+          <CommentArea
+            onChange={this.handleChange}
+            onClick={this.handleClick}
+            isDisabled={this.isDisabled}
+          />
+          {/* <div className="bottom" /> */}
         </div>
       </main>
     );

@@ -3,7 +3,13 @@ import { BrowserRouter, Route } from "react-router-dom";
 import logo from "./logo.svg";
 import Navbar from "./components/header";
 import Home from "./components/home";
-import Profile from "./components/profile";
+import {
+  Profile,
+  ProfileGoals,
+  ProfileLikes,
+  ProfileStories
+} from "./components/prof";
+//import Profile from "./components/profile";
 import Setting from "./components/setting";
 import PostDetail from "./components/postDetail";
 
@@ -17,13 +23,18 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Navbar />
-        <Route exact path="/" component={Home} />
-        <Route exact path="/profile/" component={Profile} />
-        <Route exact path="/setting/" component={Setting} />
-        <Route exact path="/p/:id/" component={PostDetail} />
+        <Route exact={true} path="/" component={Home} />
+        <Route exact={true} path="/profile" component={Profile} />
+        <Route path="/profile/goals" component={ProfileGoals} />
+        <Route path="/profile/stories/" component={ProfileStories} />
+        <Route path="/profile/like" component={ProfileLikes} />
+        <Route path="/setting/" component={Setting} />
+        <Route path="/p/:id/" component={PostDetail} />
       </div>
     </BrowserRouter>
   );
 }
 
 export default App;
+
+//
