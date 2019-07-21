@@ -8,12 +8,13 @@ const logger = require("morgan");
 const db = require("./config/keys").mongoURI;
 
 mongoose
-  .connect(db)
+  .connect(db, { useNewUrlParser: true })
   .then(() => console.log("db is conneted"))
-  .catch(err => console.log(err));
+  .catch(err => console.log("do someting db not work" + err));
 
 // init endpoint
-const testEP = require("./Api/testEP");
+const firstEP = require("./Api/routes/index");
+const PostRoute = require("./Api/routes/postRoute");
 const app = express();
 
 // view engine setup
@@ -21,14 +22,13 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
-
 app.use(bodyParser.json());
-
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // mount endpoint
-app.use("/api", testEP);
+app.use("/", firstEP);
+app.use("/api", PostRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
