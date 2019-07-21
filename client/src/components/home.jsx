@@ -2,46 +2,33 @@ import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import "../css/home.css";
 import Post from "./include/post";
-import defaultUser from "../null.jpg";
-// stories, advice, Q&A,
+import HomeBoard from "./include/boardCategory";
+import UserAside from "./include/userAside";
 class Home extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      posts: []
+    };
+  }
+  componentDidMount() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+      .then(res => res.json())
+      .then(jsonData => {
+        console.log(jsonData);
+        this.setState({
+          posts: jsonData
+        });
+      });
   }
   render() {
     return (
       <main className="mainContent">
         <div className="mainContent__wrap">
           <div className="mainContent__wrap__content">
-            <dir className="content-left">
+            <div className="content-left">
               <section className="board">
-                <div className="board__row">
-                  <span>
-                    <a href="#"> Stories </a>
-                  </span>
-                  <span>
-                    <a href="#"> advice </a>
-                  </span>
-                  <span>
-                    {" "}
-                    <a href="#"> Q&A </a>
-                  </span>
-                </div>
-                <div className="board__row">
-                  <span>
-                    {" "}
-                    <a href="#"> discution </a>{" "}
-                  </span>
-                  <span>
-                    {" "}
-                    <a href="#"> highlights </a>{" "}
-                  </span>
-                  <span>
-                    {" "}
-                    <a href="#"> what you watching </a>{" "}
-                  </span>
-                </div>
+                <HomeBoard />
               </section>
               <section className="filter">
                 <span className="filter__text">
@@ -51,42 +38,11 @@ class Home extends Component {
               </section>
 
               <section className="post-home">
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
-                <Post />
+                <Post dataSource={this.state.posts} />
               </section>
-            </dir>
+            </div>
             <div className="content-right">
-              <section className="user--aside">
-                <div className="user--header">
-                  <div>
-                    <NavLink to="/profile/">
-                      <img
-                        src={defaultUser}
-                        className="default--user--img"
-                        alt=""
-                      />
-                    </NavLink>
-                    <NavLink to="/profile/">
-                      {" "}
-                      <h4> mosdev </h4>{" "}
-                    </NavLink>
-                  </div>
-                </div>
-              </section>
-              <section className="header-ad">
-                <span>
-                  <strong> AD</strong>{" "}
-                </span>
-              </section>
+              <UserAside />
             </div>
           </div>
         </div>
