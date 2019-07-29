@@ -42,3 +42,10 @@ there is private routes:: routes that are private
 --[0]: create user model
 --[0]: create route to registor user and test route with postman
 --[0]: install bcryptjs for encryption
+
+### redux error and auth registration and login
+
+""
+in this section we going to setup our auth reducer, error reducer. and auth action, error action to handle our react compoenent registration and login page
+
+""

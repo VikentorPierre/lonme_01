@@ -7,7 +7,7 @@ function isAuthenticated(req, res, next) {
   const token = req.header("x-auth-token");
 
   //check if we realy do have token
-  if (!token) res.status(401).json({ msg: "no token access denied" });
+  if (!token) return res.status(401).json({ msg: "no token access denied" });
 
   try {
     //verify token

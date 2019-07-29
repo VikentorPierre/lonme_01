@@ -35,6 +35,7 @@ app.use(cookieParser());
 app.use("/", firstEP);
 app.use("/api", PostRoute);
 app.use("/api/setting", userSetting);
+app.use("/api/loadUser", require("./Api/routes/loadUser"));
 app.use("/api/auth", authRouteEP);
 app.use("/api/auth", authLogin);
 
