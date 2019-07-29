@@ -2,16 +2,16 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import "../../css/post.css";
 const Post = props => {
-  const { dataSource } = props;
-  const list = dataSource.map(item => {
+  const { dataSource, onClick } = props;
+  const list = dataSource.map((id, title, body) => {
     return (
-      <div className="post__body" key={item.id}>
+      <div className="post__body" key={id}>
         <div className="post__body__title ">
-          <NavLink to="#"> {item.title} </NavLink>
+          <NavLink to="#"> {title} </NavLink>
         </div>
         <div className="post__body__des">
           <NavLink to="/p/yesitworks/">
-            <h3>{item.body}</h3>
+            <h3>{body}</h3>
           </NavLink>
         </div>
         <div className="post__subBody">
@@ -21,7 +21,9 @@ const Post = props => {
 
           <NavLink className="post--comments--link">135 comments</NavLink>
 
-          <button className="post--saved--btn">Save</button>
+          <button className="post--saved--btn" onClick={onClick.bind(id)}>
+            Save
+          </button>
         </div>
       </div>
     );
@@ -29,29 +31,3 @@ const Post = props => {
   return <div className="post--content">{list}</div>;
 };
 export default Post;
-
-{
-  /* <div className="post__body">
-<div className="post__body__title ">
-  <NavLink> My Title is this he it is </NavLink>{" "}
-</div>
-<div className="post__body__des">
-  <NavLink to="/p/yesitworks/">
-    <h3>
-      {" "}
-      Lorem ipsum dolor sit amet consectetur, adipisicing elit. Rerum
-      impedit officiis, tempora a repellat dignissimos illum nostrum
-    </h3>
-  </NavLink>
-</div>
-<div className="post__subBody">
-  <span>
-    <NavLink className="poster--link"> mosdev </NavLink>{" "}
-  </span>
-
-  <NavLink className="post--comments--link">135 comments</NavLink>
-
-  <button className="post--saved--btn">Save</button>
-</div>
-</div> */
-}

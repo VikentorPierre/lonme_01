@@ -1,25 +1,20 @@
 import React, { Component } from "react";
-import { NavLink } from "react-router-dom";
+//import { NavLink } from "react-router-dom";
+import PropTypes from "prop-types";
 import "../css/home.css";
-import Post from "./include/post";
+import Post from "./include/posts";
 import HomeBoard from "./include/boardCategory";
 import UserAside from "./include/userAside";
 class Home extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    };
-  }
-  componentDidMount() {
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then(res => res.json())
-      .then(jsonData => {
-        console.log(jsonData);
-        this.setState({
-          posts: jsonData
-        });
-      });
+  // static propTypes = {
+  //   getPosts: PropTypes.func.isRequired,
+  //   post: PropTypes.object.isRequired,
+  //   isAuthenticated: PropTypes.bool
+  // };
+
+  componentDidMount() {}
+  handleDeleteClick(id) {
+    this.props.deletePosts(id);
   }
   render() {
     return (
@@ -38,7 +33,7 @@ class Home extends Component {
               </section>
 
               <section className="post-home">
-                <Post dataSource={this.state.posts} />
+                <Post />
               </section>
             </div>
             <div className="content-right">

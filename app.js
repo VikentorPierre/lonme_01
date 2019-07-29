@@ -3,7 +3,7 @@ const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
+//const bodyParser = require("body-parser"); we dont need body partser victor should remove from package.json
 const logger = require("morgan");
 const db = require("./config/keys").mongoURI;
 
@@ -15,6 +15,11 @@ mongoose
 // init endpoint
 const firstEP = require("./Api/routes/index");
 const PostRoute = require("./Api/routes/postRoute");
+// auth endpoint
+const authRouteEP = require("./Api/routes/auth");
+const authLogin = require("./Api/routes/authLogin");
+// user setting and profile endpoint
+const userSetting = require("./Api/routes/setting");
 const app = express();
 
 // view engine setup
@@ -22,13 +27,16 @@ const app = express();
 
 app.use(logger("dev"));
 app.use(express.json());
-app.use(bodyParser.json());
+//app.use(bodyParser.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // mount endpoint
 app.use("/", firstEP);
 app.use("/api", PostRoute);
+app.use("/api/setting", userSetting);
+app.use("/api/auth", authRouteEP);
+app.use("/api/auth", authLogin);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
