@@ -58,6 +58,10 @@
   }
 }
 
+.extraContent {
+  margin-bottom: 20px;
+}
+
 @media (min-width: 500px) {
   .extraContent {
     padding-top: 95px;

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route } from "react-router-dom";
-//import { connect } from "react-redux";
 import Navbar from "./components/header";
 import Home from "./components/home";
 import {
@@ -9,6 +8,8 @@ import {
   ProfileLikes,
   ProfileStories
 } from "./components/prof";
+import LoginPage from "./components/include/loginpage";
+import SignupPage from "./components/include/signuppage";
 //import Profile from "./components/profile";
 import Setting from "./components/setting";
 import PostDetail from "./components/postDetail";
@@ -30,6 +31,8 @@ class App extends Component {
           <div className="App">
             <Navbar />
             <Route exact={true} path="/" component={Home} />
+            <Route exact={true} path="/login" component={LoginPage} />
+            <Route exact={true} path="/signup" component={SignupPage} />
             <Route exact={true} path="/profile" component={Profile} />
             <Route path="/profile/goals" component={ProfileGoals} />
             <Route path="/profile/stories/" component={ProfileStories} />
@@ -44,27 +47,3 @@ class App extends Component {
 }
 
 export default App;
-
-// function App() {
-
-//   return (
-//     <Provider store={store}>
-//       <BrowserRouter>
-//         <div className="App">
-//           <Navbar />
-//           <Route exact={true} path="/" component={Home} />
-//           <Route exact={true} path="/profile" component={Profile} />
-//           <Route path="/profile/goals" component={ProfileGoals} />
-//           <Route path="/profile/stories/" component={ProfileStories} />
-//           <Route path="/profile/like" component={ProfileLikes} />
-//           <Route path="/setting/" component={Setting} />
-//           <Route path="/p/:id/" component={PostDetail} />
-//         </div>
-//       </BrowserRouter>
-//     </Provider>
-//   );
-// }
-
-//export default App; //connect()(App);
-
-//

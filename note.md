@@ -49,3 +49,5 @@ there is private routes:: routes that are private
 in this section we going to setup our auth reducer, error reducer. and auth action, error action to handle our react compoenent registration and login page
 
 ""
+--[]: make error reducer, auth reducer and import them inside the index root reducer
+--[]: make auth action and error action
