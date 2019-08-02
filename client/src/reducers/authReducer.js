@@ -13,7 +13,8 @@ const initialState = {
   token: localStorage.getItem("token"),
   isAuthenticated: null,
   isLoading: false,
-  user: null
+  user: {}
+  //user: null
 };
 
 export default function(state = initialState, action) {
@@ -35,7 +36,8 @@ export default function(state = initialState, action) {
       localStorage.setItem("token", action.payload.token);
       return {
         ...state,
-        ...action.payload,
+        user: action.payload,
+        // ...action.payload,
         isAuthenticated: true,
         isLoading: false
       };

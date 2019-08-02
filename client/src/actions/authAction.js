@@ -35,6 +35,41 @@ export const loadUser = () => (dispatch, getState) => {
     });
 };
 
+//registerNewUser
+//@args user's username, password and email decontracture
+// method POST so we need header
+export const registerNewUser = user => dispatch => {
+  // we need to setup our header because its a POST
+
+  // header
+  // const config = {
+  //   header: {
+  //     "Content-Type": "application/json"
+  //   }
+  // };
+
+  // make request body
+  //const body = JSON.stringify({ username, password, email });
+
+  //make request
+  axios
+    .post("api/auth/signup", user)
+    .then(response =>
+      dispatch({
+        type: REGISTER_SUCCESS,
+        payload: response.data
+      })
+    )
+    .catch(err => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
+      );
+      dispatch({
+        type: REGISTER_FAIL
+      });
+    }); //end catch
+};
+
 // Setup config/headers and token
 export const tokenConfig = getState => {
   const token = getState().auth.token; // goes to the auth reducer and grab the token there and set it to the const

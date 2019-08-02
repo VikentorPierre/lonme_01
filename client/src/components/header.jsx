@@ -19,7 +19,9 @@ class HeaderNav extends Component {
           <div className="navbar__bar__links">
             <ul>
               <li>
-                <a href="#"> action1</a>
+                <NavLink exact to="/signup" className="">
+                  signup
+                </NavLink>
               </li>
             </ul>
             <ul>

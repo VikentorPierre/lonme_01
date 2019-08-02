@@ -28,8 +28,9 @@ export const getPosts = () => dispatch => {
   // when we make a call the call return a promise
   // we use the .then function to catch that promise
   // we pass the response to the dispatch callback
+  //"proxy": "http://localhost:5000",
 
-  axios.get("https://jsonplaceholder.typicode.com/posts").then(response =>
+  axios.get("/api/allpost").then(response =>
     dispatch({
       type: GET_POSTS,
       payload: response.data

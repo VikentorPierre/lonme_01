@@ -9,7 +9,7 @@ const Post = require("../models/TesPost");
 
 router.get("/allpost", (req, res) => {
   // use model and sort doc
-  Post.find().then(items => res.json(items));
+  Post.find().then(items => res.status(200).json(items));
 });
 
 //@route GET api/home

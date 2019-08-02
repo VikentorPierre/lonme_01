@@ -2,8 +2,8 @@ import React from "react";
 import "../../css/auth.css";
 const signupComponent = props => {
   return (
-    <div className="inner--auth--form" onSubmit={props.onSubmit}>
-      <form action="" className="auth--form ">
+    <div className="inner--auth--form">
+      <form className="auth--form" onSubmit={props.onSubmit}>
         <span>
           <h2 className>Sign Up</h2>
         </span>
@@ -33,7 +33,6 @@ const signupComponent = props => {
           placeholder="Password"
           className="auth--form__input"
           onChange={props.onChange}
-          required
         />
 
         {/* passwordConfirm */}
@@ -44,7 +43,6 @@ const signupComponent = props => {
           className="auth--form__input"
           placeholder="Passwor Cornfirm"
           onChange={props.onChange}
-          required
         />
         <div className="auth--form__submit">
           <button

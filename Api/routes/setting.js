@@ -9,7 +9,7 @@ const UserModel = require("../models/User");
 //@route  GET api/setting
 //@desc     get the setting for a user
 //@access   private: a user needs to be login in
-router.get("/", isAuthenticated, function(req, res, next) {
+router.get("/kkkkjj", isAuthenticated, function(req, res, next) {
   UserModel.findById(req.user.id)
     .select("-password")
     .then(user => res.status(200).json(user));
