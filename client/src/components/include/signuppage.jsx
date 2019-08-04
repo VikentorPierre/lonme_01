@@ -25,19 +25,21 @@ class LoginPage extends Component {
     register: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
-  componentDidUpdate(prevProps) {
-    const { error, isAuthenticated } = this.props;
-    // check if we have some newer error
-    if (error !== prevProps.error) {
-      // Check for register error
-      //if set it to the state
-      // else null msg
-      if (error.id === "REGISTER_FAIL") {
-        console.log(error);
-        this.setState({ error: error.msg.msg });
-      } else {
-        this.setState({ error: null });
-      }
+  componentDidMount() {
+    if (this.props.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.auth.isAuthenticated) {
+      this.props.history.push("/");
+    }
+    if (nextProps.error) {
+      this.setState({
+        error: nextProps.error.msg
+      });
+    } else {
+      this.setState({ error: null });
     }
   }
   handleOnChange(e) {
@@ -55,23 +57,16 @@ class LoginPage extends Component {
       password: password,
       passwordConfirm: passwordConfirm
     };
-    // console.log(
-    //   `username is: ${username}.. password is: ${password}  email is: ${email}`
-    // );
-    console.log(newUser);
-    //console.log("the new user is object " + newUser);
-    // attempt to register new user
-    this.props.registerNewUser(newUser);
+    this.props.registerNewUser(newUser, this.props.history);
   }
-  // componentDidMount() {
-  //   //axios.get("/api/allpost").then(res => console.log(res.data));
-  // }
   render() {
     return (
       <main className="mainContent">
         <div className="mainContent__wrap">
           <div className="mainContent__wrap__content extraContent">
-            {this.state.error != null && <div> {this.state.error}</div>}
+            {this.state.error != null && <div>{this.state.error.username}</div>}
+            {this.state.error != null && <div>{this.state.error.password}</div>}
+            {this.state.error != null && <div>{this.state.error.email}</div>}
             <SignUp
               onChange={this.handleOnChange}
               onSubmit={this.handleFormOnSubmit}
@@ -86,7 +81,7 @@ class LoginPage extends Component {
 }
 
 const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
+  auth: state.auth, //state.auth.isAuthenticated,
   error: state.error // state.error the error is coming from the main reducer
 });
 

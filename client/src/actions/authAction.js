@@ -38,28 +38,17 @@ export const loadUser = () => (dispatch, getState) => {
 //registerNewUser
 //@args user's username, password and email decontracture
 // method POST so we need header
-export const registerNewUser = user => dispatch => {
-  // we need to setup our header because its a POST
-
-  // header
-  // const config = {
-  //   header: {
-  //     "Content-Type": "application/json"
-  //   }
-  // };
-
-  // make request body
-  //const body = JSON.stringify({ username, password, email });
-
+export const registerNewUser = (user, history) => dispatch => {
   //make request
   axios
     .post("api/auth/signup", user)
-    .then(response =>
+    .then(response => {
       dispatch({
         type: REGISTER_SUCCESS,
         payload: response.data
-      })
-    )
+      });
+      history.push("/");
+    })
     .catch(err => {
       dispatch(
         returnErrors(err.response.data, err.response.status, "REGISTER_FAIL")
@@ -87,4 +76,26 @@ export const tokenConfig = getState => {
   }
 
   return config;
+};
+//
+export const login = (user, history) => dispatch => {
+  axios
+    .post("api/auth/login", user)
+    .then(response => {
+      dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      history.push("/");
+    })
+    .catch(err => {
+      dispatch(
+        returnErrors(err.response.data, err.response.status, "LOGIN_FAIL")
+      );
+      dispatch({ type: LOGIN_FAIL });
+    });
+}; // end login
+
+// Logout User
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS
+  };
 };
