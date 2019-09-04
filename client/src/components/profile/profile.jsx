@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 // import { NavLink } from "react-router-dom";
-import Tab from "./include/tabs";
+import Tab from "../include/tabs";
 
 import "../css/profile.css";
 class Profile extends Component {

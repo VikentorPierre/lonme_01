@@ -1,5 +1,7 @@
 import React from "react";
+import "../../css/base.css";
 import "../../css/auth.css";
+
 const signupComponent = props => {
   return (
     <div className="inner--auth--form">

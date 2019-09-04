@@ -1,8 +1,56 @@
 .header--profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
   background-color: aqua;
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 50px;
   position: relative;
+}
+
+.header--profile--pic {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  background-color: burlywood;
+  margin-right: 15px;
+}
+
+.header--profile--pic img {
+  border-radius: 50%;
+  width: 50%;
+  min-width: 100px;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+.header--profile--info {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.info--name {
+  margin-bottom: 20px;
+}
+
+.info--stats {
+  margin-bottom: 20px;
+}
+
+.info--bio {
+  margin-bottom: 20px;
 }
 
 .profile--menu--bar {

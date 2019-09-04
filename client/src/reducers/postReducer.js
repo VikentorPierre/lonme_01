@@ -2,20 +2,30 @@ import {
   DELETE_POST,
   ADD_POST,
   GET_POSTS,
-  POST_LOADING
+  POST_LOADING,
+  CREATE_POST
 } from "../actions/types";
 const initialState = {
-  items: [],
-  loading: false
+  //items: [],
+  posts: [],
+  //post: null,
+  // error: {},
+  loading: true
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
+    case CREATE_POST:
+      return {
+        ...state,
+        post: action.payload,
+        loading: false
+      };
     case GET_POSTS:
       //console.log("state" + state.item);
       return {
         ...state,
-        items: action.payload,
+        posts: action.payload,
         loading: false
       };
     case DELETE_POST:

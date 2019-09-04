@@ -16,7 +16,6 @@ const UserSchema = new Schema({
     type: String,
     required: true,
     unique: true
-    //match: /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
   },
   password: {
     type: String,
@@ -30,6 +29,26 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false,
     required: true
+  },
+  bio: {
+    type: String,
+    default: "no bio"
+  },
+  num_of_posts: {
+    type: Number,
+    default: 0
+  },
+  num_of_goals: {
+    type: Number,
+    default: 0
+  },
+  num_of_stories: {
+    type: Number,
+    default: 0
+  },
+  num_of_likes: {
+    type: Number,
+    default: 0
   }
 });
 

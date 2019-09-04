@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../actions/authAction";
-import "../css/nav.css";
+
+import { logout } from "../../actions/authAction";
+import { getPosts } from "../../actions/postAction";
+
+import "../../css/nav.css";
 
 function UserAuth(props) {
   return (
@@ -16,8 +19,8 @@ function UserAuth(props) {
       </ul>
       <ul>
         <li>
-          <NavLink exact to="/profile/" className="">
-            Profile
+          <NavLink exact to="/post/create" className="">
+            Post
           </NavLink>
         </li>
       </ul>
@@ -52,24 +55,27 @@ function Guest() {
   );
 }
 class HeaderNav extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state = {};
+  // }
 
   render() {
     return (
       <header className="navbar">
         <div className="navbar__bar">
           <div className="navbar__bar__logo">
-            <NavLink exact to="/">
-              <h1>LoneMe</h1>
+            <NavLink exact to="/" onClick={e => {
+              e.preventDefault()
+              this.props.getPosts('')
+            }}>
+              <h1>LoneMe </h1>
             </NavLink>
             {this.props.auth.isAuthenticated ? (
               <UserAuth onClick={this.props.logout} />
             ) : (
-              <Guest />
-            )}
+                <Guest />
+              )}
           </div>
         </div>
       </header>
@@ -81,5 +87,5 @@ const mapStateToProps = state => ({
 });
 export default connect(
   mapStateToProps,
-  { logout }
+  { logout, getPosts }
 )(HeaderNav);

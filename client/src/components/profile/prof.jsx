@@ -1,13 +1,13 @@
 import React from "react";
-import Tab from "./include/tabs";
-import "../css/profile.css";
+import Tab from "../include/tabs";
+import "../../css/profile.css";
 
 const Profile = props => {
   return (
     <main className="mainContent">
       <div className="mainContent__wrap">
         <div className="mainContent__wrap__content extraContent">
-          <header className="header--profile" />
+          {/* <header className="header--profile" /> */}
           <Tab />
           <section className="profile--content">
             <h1> profile post</h1>
@@ -23,7 +23,7 @@ const ProfileGoals = props => {
     <main className="mainContent">
       <div className="mainContent__wrap">
         <div className="mainContent__wrap__content extraContent">
-          <header className="header--profile" />
+          {/* <header className="header--profile" /> */}
           <Tab />
           <section className="profile--content">
             <h1> profile Goals</h1>
@@ -39,7 +39,7 @@ const ProfileStories = props => {
     <main className="mainContent">
       <div className="mainContent__wrap">
         <div className="mainContent__wrap__content extraContent">
-          <header className="header--profile" />
+          {/* <header className="header--profile" /> */}
           <Tab />
           <section className="profile--content">
             <h1> profile Stories</h1>
@@ -55,7 +55,7 @@ const ProfileLikes = props => {
     <main className="mainContent">
       <div className="mainContent__wrap">
         <div className="mainContent__wrap__content extraContent">
-          <header className="header--profile" />
+          {/* <header className="header--profile" /> */}
           <Tab />
           <section className="profile--content">
             <h1> profile Likes</h1>

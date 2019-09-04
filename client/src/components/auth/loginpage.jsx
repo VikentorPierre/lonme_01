@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import LoginComponent from "../include/loginComponent";
+import LoginComponent from "./loginComponent";
 import { login } from "../../actions/authAction";
 import PropTypes from "prop-types";
 
@@ -21,7 +21,12 @@ class LoginPage extends Component {
     login: PropTypes.func.isRequired,
     clearErrors: PropTypes.func.isRequired
   };
-  componentDidMount() {
+  // componentDidMount() {
+  //   if (this.props.auth.isAuthenticated) {
+  //     this.props.history.push("/");
+  //   }
+  // }
+  componentWillMount() {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push("/");
     }

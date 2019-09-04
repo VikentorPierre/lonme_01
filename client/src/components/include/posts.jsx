@@ -19,7 +19,7 @@ class Posts extends Component {
     this.props.deletePosts(id);
   }
   render() {
-    const list = this.props.posts.map(post => {
+    const list = this.props.posts.posts.map(post => {
       return (
         <div className="post__body" key={post.id}>
           <div className="post__body__title ">
@@ -55,7 +55,8 @@ class Posts extends Component {
   }
 }
 const mapStateToProps = state => ({
-  posts: state.posts.items
+  posts: state.posts
+  //posts: state.posts.items
 });
 // connect take two parameter first is the store state, second is a list of action
 export default connect(

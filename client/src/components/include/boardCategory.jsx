@@ -1,15 +1,26 @@
 import React, { Fragment } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
-const board = () => {
+import { connect } from "react-redux";
+import { getPosts } from "../../actions/postAction";
+
+const board = (props) => {
+
   return (
     <Fragment>
       <div className="board__row">
         <span>
-          <a href="#"> Stories </a>
+          {/* <button value='others' onClick={e => this.props.getPosts(e.target.value)}> Others </button> */}
+          <Link to="/posts/others" onClick={e => {
+            e.preventDefault()
+            props.getPosts('others')
+          }}> Stories </Link>
         </span>
         <span>
-          <a href="#"> advice </a>
+          <Link to="#" onClick={e => {
+            e.preventDefault()
+            props.getPosts('Advice')
+          }}> advice </Link>
         </span>
         <span>
           <a href="#"> Q&A </a>
@@ -30,4 +41,4 @@ const board = () => {
   );
 };
 
-export default board;
+export default connect(null, { getPosts })(board);

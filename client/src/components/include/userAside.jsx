@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
+import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import defaultUser from "../../null.jpg";
 
-const userAside = props => {
+const userAside = ({ userInfo: { userInfo } }) => {
   return (
     <Fragment>
       <section className="user--aside">
@@ -12,8 +13,9 @@ const userAside = props => {
               <img src={defaultUser} className="default--user--img" alt="" />
             </NavLink>
             <NavLink to="/profile/">
-              <h4> mosdev </h4>
+              <h4> {userInfo.username} </h4>
             </NavLink>
+            <h3> {userInfo.bio}</h3>
           </div>
         </div>
       </section>
@@ -25,5 +27,10 @@ const userAside = props => {
     </Fragment>
   );
 };
-
-export default userAside;
+const mapStateToProps = state => ({
+  userInfo: state.userInfo
+});
+export default connect(
+  mapStateToProps,
+  null
+)(userAside);

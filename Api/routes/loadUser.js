@@ -11,7 +11,7 @@ router.get("/", isAuthenticated, function(req, res, next) {
     .select("-password")
     .then(user =>
       res.status(200).json({
-        user: user,
+        id: user.id,
         msg: "getting the user"
       })
     );

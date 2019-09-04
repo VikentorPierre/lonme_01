@@ -1,16 +1,14 @@
 import React, { Component } from "react";
-//import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import "../css/home.css";
-import Post from "./include/posts";
-import HomeBoard from "./include/boardCategory";
-import UserAside from "./include/userAside";
+import "../../css/home.css";
+import Post from "../include/posts";
+import HomeBoard from "../include/boardCategory";
+import UserAside from "../include/userAside";
 class Home extends Component {
-  // static propTypes = {
-  //   getPosts: PropTypes.func.isRequired,
-  //   post: PropTypes.object.isRequired,
-  //   isAuthenticated: PropTypes.bool
-  // };
+  static propTypes = {
+    auth: PropTypes.bool
+  };
 
   componentDidMount() {}
   handleDeleteClick(id) {
@@ -21,7 +19,13 @@ class Home extends Component {
       <main className="mainContent">
         <div className="mainContent__wrap">
           <div className="mainContent__wrap__content">
-            <div className="content-left">
+            <div
+              className={
+                this.props.auth.isAuthenticated
+                  ? "content-left"
+                  : "content-center"
+              }
+            >
               <section className="board">
                 <HomeBoard />
               </section>
@@ -36,14 +40,23 @@ class Home extends Component {
                 <Post />
               </section>
             </div>
-            <div className="content-right">
-              <UserAside />
-            </div>
+
+            {this.props.auth.isAuthenticated && (
+              <div className="content-right">
+                <UserAside />{" "}
+              </div>
+            )}
           </div>
         </div>
       </main>
     );
   }
 }
+const mapStateToProps = state => ({
+  auth: state.auth
+});
 
-export default Home;
+export default connect(
+  mapStateToProps,
+  null
+)(Home);

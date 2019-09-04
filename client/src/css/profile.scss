@@ -1,9 +1,40 @@
+//header
 .header--profile {
+  display: flex;
+  flex-direction: row;
   background-color: aqua;
-  height: 100px;
+  min-height: 100px;
   margin-bottom: 50px;
   position: relative;
 }
+.header--profile--pic {
+  flex: 1;
+  background-color: burlywood;
+  margin-right: 15px;
+}
+.header--profile--pic img {
+  border-radius: 50%;
+  width: 50%;
+  min-width: 100px;
+  align-content: center;
+}
+.header--profile--info {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+}
+// header info
+.info--name {
+  margin-bottom: 20px;
+}
+.info--stats {
+  margin-bottom: 20px;
+}
+.info--bio {
+  margin-bottom: 20px;
+}
+
+// menu bar
 .profile--menu--bar {
   border-top: 1px solid #efefef;
   display: flex;
@@ -43,21 +74,7 @@
   margin-right: 60px;
   font-size: 16px;
 }
-// .profile-tab-link:visited {
-//   color: green;
-// }
-// .profile-tab-link.active:visited {
-//   color: green;
-// }
-// a.active {
-//   color: red;
-// }
-// a:visited {
-//   color: blue;
-// }
-// a.active:visited {
-//   color: red;
-// }
+
 a:link {
   color: blue;
 } /* Unvisited links */

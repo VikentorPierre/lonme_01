@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from "react-router-dom";
-import { Comments, CommentArea } from "./include/comments";
-import "../css/postDetail.css";
+import { Comments, CommentArea } from "../include/comments";
+import "../../css/postDetail.css";
 class PostDetail extends Component {
   constructor(props) {
     super(props);

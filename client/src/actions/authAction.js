@@ -1,6 +1,5 @@
 import axios from "axios";
 import { returnErrors } from "./errorAction";
-
 import {
   USER_LOADED,
   USER_LOADING,
@@ -9,7 +8,9 @@ import {
   LOGIN_FAIL,
   LOGOUT_SUCCESS,
   REGISTER_SUCCESS,
-  REGISTER_FAIL
+  REGISTER_FAIL,
+  USER_INFO_GET,
+  USER_INFO_LOADING
 } from "./types";
 
 // check if we have a token inside the header and return the user for that token
@@ -47,6 +48,7 @@ export const registerNewUser = (user, history) => dispatch => {
         type: REGISTER_SUCCESS,
         payload: response.data
       });
+      dispatch(loadUserInfo());
       history.push("/");
     })
     .catch(err => {
@@ -83,7 +85,9 @@ export const login = (user, history) => dispatch => {
     .post("api/auth/login", user)
     .then(response => {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
+      dispatch(loadUserInfo());
       history.push("/");
+      //dispatch(loadUserInfo());
     })
     .catch(err => {
       dispatch(
@@ -98,4 +102,25 @@ export const logout = () => {
   return {
     type: LOGOUT_SUCCESS
   };
+};
+
+export const loadUserInfo = () => (dispatch, getState) => {
+  // set our user loading var to true by dispatch USER_LOADING
+  dispatch({ type: USER_INFO_LOADING }); // we call the USER_LOADING reducer
+
+  // pass this token with our request
+  axios
+    .get("/api/loadUserInfo", tokenConfig(getState))
+    .then(response =>
+      dispatch({
+        type: USER_INFO_GET,
+        payload: response.data
+      })
+    )
+    .catch(error => {
+      dispatch(returnErrors(error.response.data, error.response.status));
+      dispatch({
+        type: AUTH_ERROR
+      });
+    });
 };
