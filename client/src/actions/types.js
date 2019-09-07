@@ -18,6 +18,14 @@ export const CLEAR_ERRORS = "CLEAR_ERRORS";
 // Post reducer
 export const CREATE_POST = "CREATE_POST";
 export const GET_ALL_POSTS = "GET_ALL_POSTS";
+export const GET_POST_DETAIL = "GET_POST_DETAIL"
+export const UPDATE_POST_LIKES = "UPDATE_POST_LIKES";
+
+// Comments 
+export const ADD_COMMENT = "ADD_COMMENT";
+export const REMOVE_COMMENT = "REMOVE_COMMENT";
+export const GET_COMMENTS = "GET_COMMENTS";
+export const UPDATE_COMMENT_LIKES = "UPDATE_COMMENT_LIKES";
 
 export const GET_POSTS = "GET_POSTS";
 export const ADD_POST = "ADD_POST";

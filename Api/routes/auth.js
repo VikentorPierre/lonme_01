@@ -80,8 +80,8 @@ router.post(
             res.status(200).json({
               token: token,
               user: {
-                id: user.id
-                // username: user.username,
+                id: user.id,
+                username: user.username
                 // email: user.email
               }
             });
@@ -127,8 +127,8 @@ router.post(
                 res.status(200).json({
                   token: token,
                   user: {
-                    id: user.id
-                    // username: user.username,
+                    id: user.id,
+                    username: user.username
                     // email: user.email
                   }
                 });

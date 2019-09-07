@@ -10,15 +10,17 @@ const CommentArea = props => {
   //const { myName } = props;
   return (
     <div className="comment--input--wrap">
-      <form action="#" className="comment--form">
+      <form action="#" className="comment--form" onSubmit={props.onSubmit}>
         <textarea
           type="text"
+          name="text"
           className="comment--form__input"
           placeholder="enter your comment here "
           onChange={props.onChange}
           onClick={props.onClick}
           disabled={props.isDisabled}
         />
+        <input className="" type="submit" value="submit" />
       </form>
     </div>
   );

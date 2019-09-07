@@ -66,7 +66,7 @@ class HeaderNav extends Component {
         <div className="navbar__bar">
           <div className="navbar__bar__logo">
             <NavLink exact to="/" onClick={e => {
-              e.preventDefault()
+              //e.preventDefault()
               this.props.getPosts('')
             }}>
               <h1>LoneMe </h1>

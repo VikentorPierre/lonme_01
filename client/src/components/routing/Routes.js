@@ -9,6 +9,7 @@ import Login from '../auth/loginpage';
 import Feed from "../feed/home";
 // post
 import CreatePost from "../post/postCreate";
+import PostDetail from "../post/postDetail";
 
 // import Profiles from '../profiles/Profiles';
 // import Profile from '../profile/Profile';
@@ -21,7 +22,9 @@ const Routes = () => {
         <Switch>
             <Route exact path='/signUp' component={Register} />
             <Route exact path='/login' component={Login} />
+            <Route path="/p/:id/" component={PostDetail} />
             <PrivateRoute exact path="/post/create" component={CreatePost} />
+
             {/* <Route exact path='/profiles' component={Profiles} />
           <Route exact path='/profile/:id' component={Profile} /> */}
             {/* <PrivateRoute exact path='/dashboard' component={Dashboard} />

@@ -5,7 +5,6 @@ const { check, validationResult } = require("express-validator/check");
 //models
 const UserModel = require("../models/User");
 const PostModel = require("../models/Post");
-const CommentModel = require("../models/comments");
 
 // routes
 
@@ -38,7 +37,7 @@ router.post("/createPost", isAuthenticated, async (req, res, next) => {
 // @access   Public
 router.get("/posts/:tag?", async (req, res) => {
   try {
-    console.log(req.params.tag);
+    //console.log(req.params.tag);
 
     if (req.params.tag !== undefined) {
       const posts = await PostModel.find({ tags: req.params.tag })
@@ -60,7 +59,7 @@ router.get("/posts/:tag?", async (req, res) => {
 // @route    GET api/posts/:id
 // @desc     Get post by ID. post detail page.
 // @access   Public
-router.get("/:id", async (req, res) => {
+router.get("/p/:id", async (req, res) => {
   try {
     const post = await PostModel.findById(req.params.id);
 

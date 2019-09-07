@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DELETE_POST, ADD_POST, GET_POSTS, POST_LOADING, CREATE_POST } from "./types";
+import { DELETE_POST, ADD_POST, GET_POSTS, POST_LOADING, CREATE_POST, GET_POST_DETAIL } from "./types";
 import { returnErrors } from "./errorAction";
 
 export const createPost = (newPost, history) => (dispatch, getState) => {
@@ -9,13 +9,48 @@ export const createPost = (newPost, history) => (dispatch, getState) => {
       payload: response.data
     });
     history.push("/");
-
-
   }).catch(err => {
     dispatch(returnErrors(err.response.data, err.response.status, "POST_CREATE_ERROR"))
   })
-
 };
+
+export const getPostDetail = (post_id) => async dispatch => {
+  try {
+    const res = await axios.get(`/api/post/p/${post_id}`)
+    dispatch({
+      type: GET_POST_DETAIL,
+      payload: res.data
+    })
+
+  } catch (error) {
+    console.log("error on getting post detail");
+    // dispatch({
+    //   type: GET_POST_DETAIL,
+    //   payload: post_id
+    // })
+  }
+};
+
+// Get post
+// export const getPost = id => async dispatch => {
+//   try {
+//     const res = await axios.get(`/api/posts/${id}`);
+
+//     dispatch({
+//       type: GET_POST,
+//       payload: res.data
+//     });
+//   } catch (err) {
+//     dispatch({
+//       type: POST_ERROR,
+//       payload: { msg: err.response.statusText, status: err.response.status }
+//     });
+//   }
+// };
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
 // export const getPosts = () => {
 //   console.log("action dispatch");
 //   return {

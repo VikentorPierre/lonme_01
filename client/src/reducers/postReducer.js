@@ -3,12 +3,13 @@ import {
   ADD_POST,
   GET_POSTS,
   POST_LOADING,
-  CREATE_POST
+  CREATE_POST,
+  GET_POST_DETAIL
 } from "../actions/types";
 const initialState = {
   //items: [],
   posts: [],
-  //post: null,
+  post: {},
   // error: {},
   loading: true
 };
@@ -38,6 +39,12 @@ export default function (state = initialState, action) {
         ...state,
         loading: true
       };
+    case GET_POST_DETAIL:
+      return {
+        ...state,
+        post: action.payload
+
+      }
     // case ADD_POST:
     //   return {
     //     ...state,

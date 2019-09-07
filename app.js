@@ -21,7 +21,8 @@ app.use(cookieParser());
 
 // mount endpoint // Define Routes
 app.use("/", require("./Api/routes/index")); // my test route
-app.use("/api/post", require("./Api/routes/Post")); // localhost/post
+app.use("/api/post", require("./Api/routes/Post")); // localhost/post // all post
+app.use("/api/comment", require("./Api/routes/Comment"));
 
 //app.use("/api", require("./Api/routes/postRoute"));
 //app.use("/api/setting", userSetting);
@@ -32,12 +33,12 @@ app.use("/api/auth", require("./Api/routes/auth"));
 //app.use("/api/auth", authLogin);
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.json({

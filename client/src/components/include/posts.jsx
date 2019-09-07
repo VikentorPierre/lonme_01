@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getPosts, deletePosts } from "../../actions/postAction";
-import { NavLink } from "react-router-dom";
+import { getPosts } from "../../actions/postAction";
+import { Link, match } from "react-router-dom";
 import PropTypes from "prop-types";
 import "../../css/post.css";
 class Posts extends Component {
@@ -12,30 +12,37 @@ class Posts extends Component {
   };
 
   componentDidMount() {
+    //const { match: { params } } = this.props;
     this.props.getPosts();
+    //console.log(this.props);
+
   }
 
   handleDeleteClick(id) {
-    this.props.deletePosts(id);
+    //this.props.deletePosts(id);
+  }
+  handleLink(post_id) {
+    this.props.getPostDetail(post_id)
+
   }
   render() {
     const list = this.props.posts.posts.map(post => {
       return (
         <div className="post__body" key={post.id}>
           <div className="post__body__title ">
-            <NavLink to="#"> {post.title} </NavLink>
+            <Link to="#"> {post.title} </Link>
           </div>
           <div className="post__body__des">
-            <NavLink to="/p/yesitworks/">
-              <h3>{post.body}</h3>
-            </NavLink>
+            <Link to={`/p/${post._id}/`}>
+              <h3>{post.text}</h3>
+            </Link>
           </div>
           <div className="post__subBody">
             <span>
-              <NavLink className="poster--link"> mosdev </NavLink>
+              <Link className="poster--link"> mosdev </Link>
             </span>
 
-            <NavLink className="post--comments--link">135 comments</NavLink>
+            <Link className="post--comments--link">135 comments</Link>
 
             <button
               className="post--saved--btn"
@@ -61,7 +68,7 @@ const mapStateToProps = state => ({
 // connect take two parameter first is the store state, second is a list of action
 export default connect(
   mapStateToProps,
-  { getPosts, deletePosts }
+  { getPosts }
 )(Posts);
 //component -> actions -> reducer -> store
 //So what Brad did was hit click, pass the id to the actions, pass the payload in actions to the reducer, and then into the store
