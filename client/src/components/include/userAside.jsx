@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { NavLink } from "react-router-dom";
 import defaultUser from "../../null.jpg";
 
-const userAside = ({ userInfo: { userInfo } }) => {
+const userAside = ({ profile_meta: { profile_meta } }) => {
   return (
     <Fragment>
       <section className="user--aside">
@@ -13,9 +13,9 @@ const userAside = ({ userInfo: { userInfo } }) => {
               <img src={defaultUser} className="default--user--img" alt="" />
             </NavLink>
             <NavLink to="/profile/">
-              <h4> {userInfo.username} </h4>
+              <h4> {profile_meta.username} </h4>
             </NavLink>
-            <h3> {userInfo.bio}</h3>
+            <h3> {profile_meta.bio}</h3>
           </div>
         </div>
       </section>
@@ -28,7 +28,7 @@ const userAside = ({ userInfo: { userInfo } }) => {
   );
 };
 const mapStateToProps = state => ({
-  userInfo: state.userInfo
+  profile_meta: state.profile_meta
 });
 export default connect(
   mapStateToProps,

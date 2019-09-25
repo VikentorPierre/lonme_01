@@ -28,14 +28,14 @@ import { connect } from "react-redux";
 import Routes from "./components/routing/Routes";
 import { Provider } from "react-redux";
 import store from "./store";
-import { loadUser, loadUserInfo } from "./actions/authAction";
+import { loadUser, getProfileMeta } from "./actions/authAction";
 //import Home from "./components/feed/home";
 
 class App extends Component {
   //run this code everytime to get the user from the token
   componentDidMount() {
     store.dispatch(loadUser());
-    store.dispatch(loadUserInfo());
+    store.dispatch(getProfileMeta());
   }
   render() {
     return (

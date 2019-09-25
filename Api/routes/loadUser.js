@@ -6,15 +6,14 @@ const UserModel = require("../models/User");
 //@route  GET api/setting
 //@desc     get the user that is login
 //@access   private: a user needs to be login in
-router.get("/", isAuthenticated, function(req, res, next) {
+router.get("/", isAuthenticated, function (req, res, next) {
   UserModel.findById(req.user.id)
     .select("-password")
     .then(user =>
       res.status(200).json({
         id: user.id,
-        msg: "getting the user"
+        username: user.username
       })
     );
 });
-
 module.exports = router;

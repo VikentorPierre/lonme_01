@@ -28,7 +28,7 @@ const board = (props) => {
       </div>
       <div className="board__row">
         <span>
-          <a href="#"> discution </a>{" "}
+          <a href="#"> discussion </a>{" "}
         </span>
         <span>
           <a href="#"> highlights </a>{" "}

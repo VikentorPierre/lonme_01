@@ -6,10 +6,10 @@ import {
 
 const initialState = {
   isLoading: false,
-  userInfo: {}
+  profile_meta: {}
 };
 
-export default function(state = initialState, action) {
+export default function (state = initialState, action) {
   switch (action.type) {
     case USER_INFO_LOADING:
       return {
@@ -19,12 +19,12 @@ export default function(state = initialState, action) {
     case USER_INFO_GET:
       return {
         ...state,
-        userInfo: action.payload,
+        profile_meta: action.payload,
         isLoading: false
       };
     case LOGOUT_SUCCESS:
       return {
-        userInfo: {}
+        profile_meta: {}
       };
 
     default:

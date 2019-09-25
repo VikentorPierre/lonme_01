@@ -24,13 +24,12 @@ app.use("/", require("./Api/routes/index")); // my test route
 app.use("/api/post", require("./Api/routes/Post")); // localhost/post // all post
 app.use("/api/comment", require("./Api/routes/Comment"));
 
-//app.use("/api", require("./Api/routes/postRoute"));
-//app.use("/api/setting", userSetting);
+//get user when component mount
 app.use("/api/loadUser", require("./Api/routes/loadUser"));
-app.use("/api/loadUserInfo", require("./Api/routes/userInfo"));
-
+// get and set user profile in redux store
+app.use("/api/profile", require("./Api/routes/profileMeta"));
+// auth 
 app.use("/api/auth", require("./Api/routes/auth"));
-//app.use("/api/auth", authLogin);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

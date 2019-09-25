@@ -2,9 +2,6 @@ const express = require("express");
 const router = express.Router();
 const isAuthenticated = require("../middleware/isAuthenticated");
 const UserModel = require("../models/User");
-// const brcypt = require("bcryptjs");
-// const jwt = require("jsonwebtoken");
-// const jwtSecret = require("../../config/keys").jwtSecret;
 
 //@route  GET api/setting
 //@desc     get the setting for a user
@@ -17,17 +14,11 @@ router.get("/", isAuthenticated, async (req, res, next) => {
     if (!user) {
       return res.status(400).json({ msg: "there is no user with that id " });
     }
-    console.log(user);
+    //console.log(user);
     res.json(user);
   } catch (error) {
-    console.error(error.message);
+    //console.error(error.message);
     res.status(500).send("error on getting user ");
   }
 });
-// router.get("/kkkkjj", isAuthenticated, async (req, res, next) {
-//   // UserModel.findById(req.user.id)
-//   //   .select("-password")
-//   //   .then(user => res.status(200).json(user));
-// });
-
 module.exports = router;

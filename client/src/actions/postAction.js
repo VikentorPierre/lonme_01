@@ -65,51 +65,51 @@ export const getPostDetail = (post_id) => async dispatch => {
 // }
 
 // Get posts
-export const getPosts = (tag = '') => async dispatch => {
-  //let val = 'Advice'
-  dispatch(setPostLoading());
-  try {
-    const res = await axios.get(`/api/post/posts/${tag}`)
-    // const res = await axios.get('/api/post/posts/');
-
-    dispatch({
-      type: GET_POSTS,
-      payload: res.data
-    });
-  } catch (err) {
-    dispatch(returnErrors(err.response.data, err.response.status, "GET_POSTS_ERROR"))
-    //console.log('error getting post ');
-    // dispatch({
-    //   //type: POST_ERROR,
-    //   payload: { msg: err.response.statusText, status: err.response.status }
-    // });
-  }
-};
-
-// export const getPosts = () => dispatch => {
+// export const getPosts = (tag = '') => async dispatch => {
+//   //let val = 'Advice'
 //   dispatch(setPostLoading());
-//   //console.log("fetching");
-//   // fetch("https://jsonplaceholder.typicode.com/posts")
-//   //   .then(res => res.json())
-//   //   .then(posts =>
-//   //     dispatch({
-//   //       type: GET_POSTS,
-//   //       payload: posts
-//   //     })
-//   //   );
+//   try {
+//     const res = await axios.get(`/api/post/posts/${tag}`)
+//     // const res = await axios.get('/api/post/posts/');
 
-//   // when we make a call the call return a promise
-//   // we use the .then function to catch that promise
-//   // we pass the response to the dispatch callback
-//   //"proxy": "http://localhost:5000",
-
-//   axios.get("/api/post/posts").then(response =>
 //     dispatch({
 //       type: GET_POSTS,
-//       payload: response.data
-//     })
-//   );
+//       payload: res.data
+//     });
+//   } catch (err) {
+//     dispatch(returnErrors(err.response.data, err.response.status, "GET_POSTS_ERROR"))
+//     //console.log('error getting post ');
+//     // dispatch({
+//     //   //type: POST_ERROR,
+//     //   payload: { msg: err.response.statusText, status: err.response.status }
+//     // });
+//   }
 // };
+
+export const getPosts = () => dispatch => {
+  dispatch(setPostLoading());
+  //console.log("fetching");
+  fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(res => res.json())
+    .then(posts =>
+      dispatch({
+        type: GET_POSTS,
+        payload: posts
+      })
+    );
+
+  // when we make a call the call return a promise
+  // we use the .then function to catch that promise
+  // we pass the response to the dispatch callback
+  //"proxy": "http://localhost:5000",
+
+  // axios.get("/api/post/posts").then(response =>
+  //   dispatch({
+  //     type: GET_POSTS,
+  //     payload: response.data
+  //   })
+  // );
+};
 
 // dispatch is thunk
 export const setPostLoading = () => {

@@ -48,7 +48,7 @@ export const registerNewUser = (user, history) => dispatch => {
         type: REGISTER_SUCCESS,
         payload: response.data
       });
-      dispatch(loadUserInfo());
+      dispatch(getProfileMeta());
       history.push("/");
     })
     .catch(err => {
@@ -85,9 +85,9 @@ export const login = (user, history) => dispatch => {
     .post("api/auth/login", user)
     .then(response => {
       dispatch({ type: LOGIN_SUCCESS, payload: response.data });
-      dispatch(loadUserInfo());
+      dispatch(getProfileMeta());
       history.push("/");
-      //dispatch(loadUserInfo());
+
     })
     .catch(err => {
       dispatch(
@@ -104,13 +104,13 @@ export const logout = () => {
   };
 };
 
-export const loadUserInfo = () => (dispatch, getState) => {
+export const getProfileMeta = () => (dispatch, getState) => {
   // set our user loading var to true by dispatch USER_LOADING
   dispatch({ type: USER_INFO_LOADING }); // we call the USER_LOADING reducer
 
   // pass this token with our request
   axios
-    .get("/api/loadUserInfo", tokenConfig(getState))
+    .get("/api/profile", tokenConfig(getState))
     .then(response =>
       dispatch({
         type: USER_INFO_GET,
